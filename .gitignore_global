@@ -1,0 +1,7 @@
+.*.swp
+.swp
+*.log
+build/
+devel/
+.cs_files
+.cs_workspaces
