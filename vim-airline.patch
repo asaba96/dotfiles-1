@@ -1,0 +1,13 @@
+diff --git a/autoload/airline/extensions/tabline/ctrlspace.vim b/autoload/airline/extensions/tabline/ctrlspace.vim
+index 357bcd7..1ef0a83 100644
+--- a/autoload/airline/extensions/tabline/ctrlspace.vim
++++ b/autoload/airline/extensions/tabline/ctrlspace.vim
+@@ -95,7 +95,7 @@ function! airline#extensions#tabline#ctrlspace#add_tab_section(builder, pos)
+       endif
+     endif
+ 
+-    call a:builder.add_section_spaced(group, '%'.tab.index.'T'.tab.title.ctrlspace#api#TabBuffersNumber(tab.index).'%T')
++    call a:builder.add_section_spaced(group, '%'.(tab.index).'T'.(tab.index).(g:airline_symbols.space).(tab.title).ctrlspace#api#TabBuffersNumber(tab.index).'%T')
+   endfor
+ endfunction
+ 
