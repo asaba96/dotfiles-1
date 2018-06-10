@@ -35,7 +35,7 @@ noremap ;; ;
 imap fj <Esc>
 
 " color scheme
-colorscheme delek
+colorscheme apprentice
 
 " options for ctrlspace
 set nocompatible
@@ -57,7 +57,7 @@ let g:AutoPairsMultilineClose = 0
 let g:AutoPairsFlyMode = 0
 
 " airline
-let g:airline_theme = 'hybridline'
+let g:airline_theme = 'angr'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_buffers = 0
