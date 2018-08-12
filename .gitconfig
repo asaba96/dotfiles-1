@@ -25,7 +25,6 @@
     st = stash
 [core]
     editor = vim
-    excludesfile = /home/aaron/.gitignore_global
 [merge]
     tool = vimdiff
     conflictstyle = diff3

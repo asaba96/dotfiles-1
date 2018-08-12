@@ -3,7 +3,7 @@ set fish_greeting
 # enable powerline
 if [ $TERM != "screen" ]
     set -x LANG en_US.UTF-8
-    #powerline-daemon -q # ${POWERLINE_COMMAND_ARGS}
+    powerline-daemon -q # ${POWERLINE_COMMAND_ARGS}
     set PYTHON_VERSION 3.6
     set POWERLINE_COMMAND powerline
     set fish_function_path $fish_function_path "/usr/local/lib/python$PYTHON_VERSION/dist-packages/powerline/bindings/fish"
