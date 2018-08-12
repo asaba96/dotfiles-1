@@ -22,6 +22,10 @@ sudo apt install -y git \
                     tree \
                     fish
 
+# Fisherman
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+fish -c "fisher edc/bass"
+
 # Powerline
 sudo -H pip3 install powerline-status
 sudo -H pip3 install powerline-gitstatus
