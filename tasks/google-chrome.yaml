@@ -3,11 +3,11 @@
     keyserver: https://dl.google.com/linux/linux_signing_key.pub
 
 - apt_repository:
-  state: present
-  filename: google-chrome
-  repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+    state: present
+    filename: google-chrome
+    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
 
 - apt:
-  name: google-chrome-stable
-  update_cache: yes
-  state: present
+    name: google-chrome-stable
+    update_cache: yes
+    state: present

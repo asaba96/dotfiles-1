@@ -4,11 +4,11 @@
     id: 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 
 - apt_repository:
-  state: present
-  filename: spotify
-  repo: deb http://repository.spotify.com stable non-free
+    state: present
+    filename: spotify
+    repo: deb http://repository.spotify.com stable non-free
 
 - apt:
-  name: spotify-client
-  update_cache: yes
-  state: present
+    name: spotify-client
+    update_cache: yes
+    state: present

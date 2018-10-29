@@ -3,12 +3,12 @@
     repo: ppa:fish-shell/nightly-master
 
 - apt:
-  name: fish
-  update_cache: yes
-  state: present
+    name: fish
+    update_cache: yes
+    state: present
 
 - get_url:
-  url: https://git.io/fisher
-  dest: ~/.config/fish/functions/fisher.fish
+    url: https://git.io/fisher
+    dest: ~/.config/fish/functions/fisher.fish
 
 - command: fish -c 'fisher add edc/bass'

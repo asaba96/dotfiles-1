@@ -4,11 +4,11 @@
     id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
 
 - apt_repository:
-  state: present
-  filename: dropbox
-  repo: deb http://linux.dropbox.com/ubuntu/ xenial main
+    state: present
+    filename: dropbox
+    repo: deb http://linux.dropbox.com/ubuntu/ xenial main
 
 - apt:
-  name: dropbox
-  update_cache: yes
-  state: present
+    name: dropbox
+    update_cache: yes
+    state: present
