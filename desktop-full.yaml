@@ -1,0 +1,23 @@
+- include_playbook: server-full.yaml
+
+- hosts: localhost
+  become: true
+
+  tasks:
+    - include: tasks/packages_from_file.yaml
+      filename: desktop
+    - include: tasks/packages_from_file.yaml
+      filename: desktop-full
+    - name: Install Steam
+      apt:
+        deb: http://media.steampowered.com/client/installer/steam.deb
+    - name: Install Mailspring
+      apt:
+        deb: https://updates.getmailspring.com/download?platform=linuxDeb
+    - name: Install Slack
+      apt:
+        deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-3.1.0-amd64.deb
+    - include_tasks: tasks/docker.yaml
+    - include_tasks: tasks/dropbox.yaml
+    - include_tasks: tasks/google-chrome.yaml
+    - include_tasks: tasks/spotify.yaml

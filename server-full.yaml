@@ -1,0 +1,12 @@
+- include_playbook: server.yaml
+
+- hosts: localhost
+  become: true
+
+  tasks:
+    - include: tasks/packages_from_file.yaml
+      filename: languages
+    - include: tasks/packages_from_file.yaml
+      filename: python-libs
+    - include: tasks/packages_from_file.yaml
+      filename: server-full
