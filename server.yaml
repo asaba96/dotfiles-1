@@ -1,4 +1,4 @@
-- include_playbook: minimal.yaml
+- import_playbook: minimal.yaml
 
 - hosts: localhost
   become: true
