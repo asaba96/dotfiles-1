@@ -5,8 +5,11 @@
 
   tasks:
     - include: tasks/packages_from_file.yaml
-      filename: languages
+      vars:
+        filename: languages
     - include: tasks/packages_from_file.yaml
-      filename: python-libs
+      vars:
+        filename: python-libs
     - include: tasks/packages_from_file.yaml
-      filename: server-full
+      vars:
+        filename: server-full

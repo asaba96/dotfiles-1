@@ -7,6 +7,8 @@
 
   tasks:
     - include: tasks/packages_from_file.yaml
-      filename: build
+      vars:
+        filename: build
     - include: tasks/packages_from_file.yaml
-      filename: tools
+      vars:
+        filename: tools

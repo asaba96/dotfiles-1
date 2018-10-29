@@ -1,3 +1,2 @@
 - name: Install packages from file
-  apt: name={{ item }}
-  with_lines: cat './packages/{{filename}}'
+  apt: name="cat './packages/{{filename}}'"

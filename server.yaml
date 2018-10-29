@@ -5,8 +5,10 @@
 
   tasks:
     - include: tasks/packages_from_file.yaml
-      filename: tools-full
+      vars:
+        filename: tools-full
     - include: tasks/packages_from_file.yaml
-      filename: server
+      vars:
+        filename: server
     - include_tasks: tasks/fish.yaml
     - include_tasks: tasks/grive.yaml

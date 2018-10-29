@@ -1,6 +1,6 @@
 - apt_repository:
-  state: present
-  repo: ppa:fish-shell/nightly-master
+    state: present
+    repo: ppa:fish-shell/nightly-master
 
 - apt:
   name: fish
