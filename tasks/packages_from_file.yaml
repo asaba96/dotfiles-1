@@ -1,2 +1,3 @@
 - name: Install packages from file
-  apt: name="cat './packages/{{filename}}'"
+  apt:
+    name: {{ lookup('lines', cat './packages/{{filename}}'") }}
