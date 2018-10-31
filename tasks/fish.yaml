@@ -7,6 +7,11 @@
     update_cache: yes
     state: present
 
+- file:
+    path: ~/.config/fish/functions
+    state: directory
+    mode: 0750
+
 - get_url:
     url: https://git.io/fisher
     dest: ~/.config/fish/functions/fisher.fish
