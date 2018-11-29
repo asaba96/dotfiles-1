@@ -84,7 +84,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer' }
 Plug 'Raimondi/vim-fish', { 'branch': 'indent' }
-Plug '~/.vim/unmanaged-plugins/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-endwise'
 call plug#end()
 

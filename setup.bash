@@ -38,12 +38,5 @@ cd fonts
 cd ..
 rm -rf fonts
 
-# Vim
-cp .vimrc $HOME
-mkdir -p $HOME/.vim/unmanaged-plugins
-git clone https://github.com/vim-airline/vim-airline $HOME/.vim/unmanaged-plugins/vim-airline
-patch $HOME/.vim/unmanaged-plugins/vim-airline/autoload/airline/extensions/tabline/ctrlspace.vim vim-airline.patch
-cp -r .vim $HOME
-
 # Everything else
-cp -r .xbindkeysrc .gitconfig .config .bashrc .bash_aliases $HOME
+cp -r .vimrc .vim .xbindkeysrc .gitconfig .config .bashrc .bash_aliases $HOME
