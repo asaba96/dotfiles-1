@@ -8,7 +8,13 @@
       dest: "{{ ansible_env.HOME }}/.config"
       state: directory
 
+- name: Get list of packages to stow
+  find:
+    paths: "{{ playbook_dir }}/../stow"
+    recurse: no
+    file_type: directory
+  register: stow_packages
+
 - name: Stow all configs
   command: chdir={{ playbook_dir }}/../stow stow --target={{ ansible_env.HOME }} {{ item.path }}
-  with_filetree: "{{ playbook_dir }}/../stow"
-  when: (item.path.split('/') | length == 1) and (item.state == 'directory')
+  with_items: "{{ stow_packages.files }}"
