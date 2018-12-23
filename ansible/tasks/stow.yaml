@@ -16,5 +16,5 @@
   register: stow_packages
 
 - name: Stow all configs
-  command: chdir={{ playbook_dir }}/../stow stow --target={{ ansible_env.HOME }} {{ item.path }}
+  command: chdir={{ playbook_dir }}/../stow stow --target={{ ansible_env.HOME }} {{ item.path.split('/')[-1] }}
   with_items: "{{ stow_packages.files }}"
