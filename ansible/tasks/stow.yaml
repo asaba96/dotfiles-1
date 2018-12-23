@@ -7,3 +7,7 @@
   command: chdir={{ ansible_env.HOME }}/dotfiles/stow stow --target={{ ansible_env.HOME }} {{ item }}
   with_fileglob:
       - "{{ playbook_dir }}/../stow/*"
+
+- debug:
+    msg: "{{ playbook_dir }}/../stow/*"
+    verbosity: 2
