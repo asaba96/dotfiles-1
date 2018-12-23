@@ -7,7 +7,7 @@
   debug:
       var: item
   #command: chdir={{ ansible_env.HOME }}/dotfiles/ansible/stow stow --target={{ ansible_env.HOME }} {{ item }}
-  with_filetree: "{{ playbook_dir }}/../stow"
+  with_filetree: "{{ playbook_dir }}/stow"
   when: (item.path.split('/') | length == 1) and (item.state == 'directory')
 
 - debug:
