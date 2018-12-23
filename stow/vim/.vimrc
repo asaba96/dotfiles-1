@@ -54,7 +54,22 @@ let g:polyglot_disabled = ['python']
 let g:python_highlight_space_errors = 0
 
 " options for anyfold, enable only for files under 1M
-autocmd Filetype * if getfsize(@%) < 1000000 | let b:anyfold_activate=1 | endif
+" Copied from anyfold readme
+augroup anyfold
+    autocmd!
+    autocmd Filetype <filetype> AnyFoldActivate
+augroup END
+
+" disable anyfold for large files
+let g:LargeFile = 1000000 " file is large if size greater than 1MB
+autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+function LargeFile()
+    augroup anyfold
+        autocmd! " remove AnyFoldActivate
+        autocmd Filetype <filetype> setlocal foldmethod=indent " fall back to indent folding
+    augroup END
+endfunction
+
 set foldlevel=10000
 
 " options for youcompleteme
@@ -137,3 +152,7 @@ let g:formatters_python = ['autopep8']
 
 " Map ctrl-k to autoformat
 map <C-k> :Autoformat<cr>
+
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
