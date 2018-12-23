@@ -4,9 +4,11 @@
       state: directory
 
 - name: Stow all configs
-  command: chdir={{ ansible_env.HOME }}/dotfiles/ansible/stow stow --target={{ ansible_env.HOME }} {{ item }}
-  with_fileglob:
-      - "stow/*"
+  debug:
+      var: item
+  #command: chdir={{ ansible_env.HOME }}/dotfiles/ansible/stow stow --target={{ ansible_env.HOME }} {{ item }}
+  with_filetree: "{{ playbook_dir }}/../stow"
+  when: (item.path.split('/') | length == 1) and (item.state == 'directory')
 
 - debug:
     msg: "stow/*"
