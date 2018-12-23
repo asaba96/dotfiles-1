@@ -23,4 +23,5 @@
     - include_tasks: tasks/docker.yaml
     - include_tasks: tasks/dropbox.yaml
     - include_tasks: tasks/google-chrome.yaml
+    - include_tasks: tasks/refind.yaml
     - include_tasks: tasks/spotify.yaml

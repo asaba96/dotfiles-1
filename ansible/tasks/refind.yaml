@@ -1,0 +1,8 @@
+- apt_repository:
+    state: present
+    repo: deb http://ppa.launchpad.net/rodsmith/refind/ubuntu bionic main
+
+- apt:
+    name: refind
+    update_cache: yes
+    state: present
