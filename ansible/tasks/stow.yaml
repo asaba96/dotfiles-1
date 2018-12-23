@@ -14,5 +14,5 @@
 - debug:
     var: item
     verbosity: 2
-    with_fileglob:
-        - "stow/*"
+  with_fileglob:
+      - "stow/*"
