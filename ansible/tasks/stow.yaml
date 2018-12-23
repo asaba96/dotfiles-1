@@ -1,3 +1,6 @@
+- name: Install stow
+  apt: stow
+
 - name: Make config directory
   file:
       dest: "{{ ansible_env.HOME }}/.config"
