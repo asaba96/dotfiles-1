@@ -7,6 +7,7 @@
       changed_when: False
 
   tasks:
+    - include: tasks/stow.yaml
     - include: tasks/packages_from_file.yaml
       vars:
         filename: build

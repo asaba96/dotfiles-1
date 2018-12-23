@@ -1,0 +1,9 @@
+- name: Make config directory
+  file:
+      dest: {{ ansible_env.HOME }}/.config
+      state: directory
+
+- name: Stow all configs
+  command: chdir={{ ansible_env.HOME }}/dotfiles/stow stow --target={{ ansible_env.HOME }} {{ item }}
+  with_fileglob:
+      - "../stow/*"
