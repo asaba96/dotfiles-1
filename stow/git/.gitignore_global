@@ -1,0 +1,8 @@
+.*.sw[nop]
+.sw[nop]
+*.log
+build/
+devel/
+.cs_files
+.cs_workspaces
+Gemfile.lock
