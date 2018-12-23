@@ -1,5 +1,7 @@
 - name: Install stow
-  apt: stow
+  apt:
+      name: stow
+      state: present
 
 - name: Make config directory
   file:
