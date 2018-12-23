@@ -1,7 +1,7 @@
 - name: Add apt key
   apt_key:
     keyserver: https://dl.google.com/linux/linux_signing_key.pub
-    id: 4CCA1EAF950CEE4AB83976DCA040830F7FAC5991
+    state: present
 
 - apt_repository:
     state: present
