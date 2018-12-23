@@ -1,6 +1,6 @@
 - name: Make config directory
   file:
-      dest: {{ ansible_env.HOME }}/.config
+      dest: "{{ ansible_env.HOME }}/.config"
       state: directory
 
 - name: Stow all configs
