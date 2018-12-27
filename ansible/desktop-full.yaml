@@ -20,8 +20,9 @@
     - name: Install Slack
       apt:
         deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-3.1.0-amd64.deb
+    - include_tasks: tasks/deluge.yaml
     - include_tasks: tasks/docker.yaml
     - include_tasks: tasks/dropbox.yaml
-    - include_tasks: tasks/google-chrome.yaml
+      #- include_tasks: tasks/google-chrome.yaml
     - include_tasks: tasks/refind.yaml
     - include_tasks: tasks/spotify.yaml
