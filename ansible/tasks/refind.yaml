@@ -1,3 +1,7 @@
+- name: Add apt key
+  apt_key:
+    id: 89C46C2592C9924469026E52DE32F3C29122E0C2
+
 - apt_repository:
     state: present
     repo: deb http://ppa.launchpad.net/rodsmith/refind/ubuntu bionic main
