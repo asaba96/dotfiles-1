@@ -23,7 +23,8 @@
       include_tasks: tasks/docker.yaml
     - name: Install Dropbox
       include_tasks: tasks/dropbox.yaml
-      #- include_tasks: tasks/google-chrome.yaml
+    - name: Install Chrome
+      include_tasks: tasks/google-chrome.yaml
     - name: Install refind
       include_tasks: tasks/refind.yaml
     - name: Install Slack
