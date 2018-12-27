@@ -17,10 +17,16 @@
     - name: Install Mailspring
       apt:
         deb: https://updates.getmailspring.com/download?platform=linuxDeb
-    - include_tasks: tasks/deluge.yaml
-    - include_tasks: tasks/docker.yaml
-    - include_tasks: tasks/dropbox.yaml
+    - name: Install Deluge
+      include_tasks: tasks/deluge.yaml
+    - name: Install Docker
+      include_tasks: tasks/docker.yaml
+    - name: Install Dropbox
+      include_tasks: tasks/dropbox.yaml
       #- include_tasks: tasks/google-chrome.yaml
-    - include_tasks: tasks/refind.yaml
-    - include_tasks: tasks/slack.yaml
-    - include_tasks: tasks/spotify.yaml
+    - name: Install refind
+      include_tasks: tasks/refind.yaml
+    - name: Install Slack
+      include_tasks: tasks/slack.yaml
+    - name: Install Spotify
+      include_tasks: tasks/spotify.yaml
