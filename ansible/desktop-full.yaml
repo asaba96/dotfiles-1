@@ -31,3 +31,5 @@
       include_tasks: tasks/slack.yaml
     - name: Install Spotify
       include_tasks: tasks/spotify.yaml
+    - name: Install Tor
+      include_tasks: tasks/tor.yaml
