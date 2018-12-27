@@ -1,5 +1,6 @@
 - name: Add apt key
   apt_key:
+    keyserver: keyserver.ubuntu.com
     id: 89C46C2592C9924469026E52DE32F3C29122E0C2
 
 - apt_repository:
