@@ -18,3 +18,7 @@
 
 - command: fish -c 'fisher add edc/bass'
 - command: fish -c 'fisher add amiller27/theme-bobthefish'
+
+- user:
+    name: "{{ lookup('env', 'USER') }}"
+    shell: /usr/bin/fish
