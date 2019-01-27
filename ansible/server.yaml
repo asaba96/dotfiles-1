@@ -5,6 +5,10 @@
   become: true
 
   tasks:
+    - name: Vim ppa
+      apt_repository:
+        state: present
+        repo: ppa:jonathonf/vim
     - include: tasks/packages_from_file.yaml
       vars:
         filename: tools-full
