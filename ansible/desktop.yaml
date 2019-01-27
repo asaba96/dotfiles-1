@@ -1,0 +1,12 @@
+#!/usr/bin/env ansible-playbook
+- import_playbook: server-full.yaml
+
+- hosts: localhost
+  become: true
+
+  tasks:
+    - include: tasks/packages_from_file.yaml
+      vars:
+        filename: desktop
+    - name: Install Docker
+      include_tasks: tasks/docker.yaml

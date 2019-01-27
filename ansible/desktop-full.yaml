@@ -1,13 +1,10 @@
 #!/usr/bin/env ansible-playbook
-- import_playbook: server-full.yaml
+- import_playbook: desktop.yaml
 
 - hosts: localhost
   become: true
 
   tasks:
-    - include: tasks/packages_from_file.yaml
-      vars:
-        filename: desktop
     - include: tasks/packages_from_file.yaml
       vars:
         filename: desktop-full
@@ -19,8 +16,6 @@
         deb: https://updates.getmailspring.com/download?platform=linuxDeb
     - name: Install Deluge
       include_tasks: tasks/deluge.yaml
-    - name: Install Docker
-      include_tasks: tasks/docker.yaml
     - name: Install Dropbox
       include_tasks: tasks/dropbox.yaml
     - name: Install Chrome
