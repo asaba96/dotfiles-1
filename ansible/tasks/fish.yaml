@@ -17,3 +17,4 @@
     dest: ~/.config/fish/functions/fisher.fish
 
 - command: fish -c 'fisher add edc/bass'
+- command: fish -c 'fisher add amiller27/theme-bobthefish'
