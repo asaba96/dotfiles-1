@@ -1,13 +1,6 @@
-set fish_greeting
-
-# enable powerline
 if [ $TERM != "screen" ]
     set -x LANG en_US.UTF-8
-    powerline-daemon -q # ${POWERLINE_COMMAND_ARGS}
-    set PYTHON_VERSION 3.6
-    set POWERLINE_COMMAND powerline
-    set fish_function_path $fish_function_path "/usr/local/lib/python$PYTHON_VERSION/dist-packages/powerline/bindings/fish"
-    powerline-setup
+    set -x TERM xterm-256color
 end
 
 function fish_user_key_bindings
@@ -45,6 +38,8 @@ alias pingo="ping google.com"
 alias vi="vim"
 alias bim="vim"
 alias vin="vim"
+alias qgit="git"
+alias ggit="git"
 
 # Schroot stuff
 function schumount
@@ -72,10 +67,10 @@ function src_files
 end
 
 function src_grep
-    if test (count $argv = 2)
-        src_files $argv[2] | xargs grep --color $argv[1]
-    else
+    if test (count $argv) = 1
         src_files | xargs grep --color $argv[1]
+    else
+        src_files $argv[2] | xargs grep --color $argv[1] $argv[3..-1]
     end
 end
 
@@ -93,3 +88,29 @@ function rosme
     set -xg ROS_MASTER_URI http://localhost:11311
     roshostname
 end
+
+function bitcraze-toolbelt
+    docker run --rm -it \
+       -e HOST_CW_DIR=$PWD \
+       -e CALLING_HOST_NAME=(hostname) \
+       -e CALLING_UID=(id --user) \
+       -e CALLING_OS=(uname) \
+       -v $PWD:/tb-module \
+       -v $HOME/.ssh:/root/.ssh \
+       -v /var/run/docker.sock:/var/run/docker.sock \
+       bitcraze/toolbelt $argv
+end
+
+set -g theme_show_exit_status yes
+set -g fish_prompt_pwd_dir_length 3
+set -g theme_color_scheme base16-light
+set -g theme_display_git_ahead_verbose yes
+set -g theme_display_git_dirty_verbose yes
+set -g theme_display_git_stashed_verbose yes
+set -g theme_display_git_staged_verbose yes
+set -g theme_display_git_untracked_verbose yes
+set -g theme_nerd_fonts yes
+
+function fish_greeting; end
+
+source (dirname (status --current-filename))/config-local.fish
