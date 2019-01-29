@@ -1,0 +1,9 @@
+- name: Clone Nerd Fonts repo
+  git:
+    repo: https://github.com/ryanoasis/nerd-fonts
+    dest: /tmp/nerd-fonts
+    clone: yes
+    depth: 1
+
+- name: Install DejaVuSansMono Nerd Font
+  command: chdir=/tmp/nerd-fonts /tmp/nerd-fonts/install.sh DejaVuSansMono

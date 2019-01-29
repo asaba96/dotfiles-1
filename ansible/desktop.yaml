@@ -8,5 +8,7 @@
     - include: tasks/packages_from_file.yaml
       vars:
         filename: desktop
+    - name: Install Nerd Fonts
+      include_tasks: tasks/fonts.yaml
     - name: Install Docker
       include_tasks: tasks/docker.yaml
