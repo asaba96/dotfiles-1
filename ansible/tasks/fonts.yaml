@@ -1,9 +1,13 @@
-- name: Clone Nerd Fonts repo
-  git:
-    repo: https://github.com/ryanoasis/nerd-fonts
-    dest: /tmp/nerd-fonts
-    clone: yes
-    depth: 1
+- name: Create fonts directory
+  file:
+    path: ~/.local/share/fonts
+    state: directory
+    mode: 0775
 
-- name: Install DejaVuSansMono Nerd Font
-  command: chdir=/tmp/nerd-fonts /tmp/nerd-fonts/install.sh DejaVuSansMono
+- name: Download DejaVu Sans Mono Nerd
+  get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf
+    dest: ~/.local/share/fonts/DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete\ Mono.ttf
+
+- name: Update font cache
+  command: fc-cache -f -v
