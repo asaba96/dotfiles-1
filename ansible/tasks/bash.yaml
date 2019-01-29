@@ -1,0 +1,4 @@
+- lineinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    line: "source {{ ansible_env.HOME }}/.bashrc.amiller27"
+    state: present

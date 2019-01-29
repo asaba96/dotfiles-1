@@ -1,0 +1,20 @@
+- name: Install stow
+  apt:
+      name: stow
+      state: present
+
+- name: Make config directory
+  file:
+      dest: "{{ ansible_env.HOME }}/.config"
+      state: directory
+
+- name: Get list of packages to stow
+  find:
+    paths: "{{ playbook_dir }}/../stow"
+    recurse: no
+    file_type: directory
+  register: stow_packages
+
+- name: Stow all configs
+  command: chdir={{ playbook_dir }}/../stow stow --target={{ ansible_env.HOME }} {{ item.path.split('/')[-1] }}
+  with_items: "{{ stow_packages.files }}"

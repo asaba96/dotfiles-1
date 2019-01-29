@@ -1,0 +1,16 @@
+#!/usr/bin/env ansible-playbook
+- import_playbook: server.yaml
+
+- hosts: localhost
+  become: true
+
+  tasks:
+    - include: tasks/packages_from_file.yaml
+      vars:
+        filename: languages
+    - include: tasks/packages_from_file.yaml
+      vars:
+        filename: python-libs
+    - include: tasks/packages_from_file.yaml
+      vars:
+        filename: server-full

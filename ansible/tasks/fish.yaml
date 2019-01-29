@@ -1,0 +1,24 @@
+- apt_repository:
+    state: present
+    repo: ppa:fish-shell/nightly-master
+
+- apt:
+    name: fish
+    update_cache: yes
+    state: present
+
+- file:
+    path: ~/.config/fish/functions
+    state: directory
+    mode: 0750
+
+- get_url:
+    url: https://git.io/fisher
+    dest: ~/.config/fish/functions/fisher.fish
+
+- command: fish -c 'fisher add edc/bass'
+- command: fish -c 'fisher add amiller27/theme-bobthefish'
+
+- user:
+    name: "{{ lookup('env', 'USER') }}"
+    shell: /usr/bin/fish

@@ -1,0 +1,13 @@
+- name: Add apt key
+  apt_key:
+    id: DB085A08CA13B8ACB917E0F6D938EC0D038651BD
+
+- apt_repository:
+    state: present
+    filename: slack
+    repo: deb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main
+
+- apt:
+    name: slack-desktop
+    update_cache: yes
+    state: present

@@ -1,0 +1,17 @@
+#!/usr/bin/env ansible-playbook
+- hosts: localhost
+  become: true
+  pre_tasks:
+    - name: update repositories
+      apt: update_cache=yes
+      changed_when: False
+
+  tasks:
+    - include: tasks/bash.yaml
+    - include: tasks/stow.yaml
+    - include: tasks/packages_from_file.yaml
+      vars:
+        filename: build
+    - include: tasks/packages_from_file.yaml
+      vars:
+        filename: tools

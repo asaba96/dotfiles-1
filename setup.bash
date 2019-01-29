@@ -30,7 +30,6 @@ fish -c "fisher add edc/bass"
 sudo -H pip3 install powerline-status
 sudo -H pip3 install powerline-gitstatus
 
-
 # Powerline fonts
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
@@ -39,4 +38,4 @@ cd ..
 rm -rf fonts
 
 # Everything else
-cp -r .vimrc .vim .xbindkeysrc .gitconfig .config .bashrc .bash_aliases $HOME
+cp -r .xbindkeysrc .gitconfig .config .bashrc .bash_aliases .vimrc .vim $HOME

@@ -1,0 +1,15 @@
+---
+BasedOnStyle: Google
+IndentWidth: 4
+---
+AccessModifierOffset: -2
+AllowShortIfStatementsOnASingleLine: true
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBinaryOperators: NonAssignment
+ContinuationIndentWidth: 8
+DerivePointerAlignment: false
+IncludeBlocks: Preserve
+Language: Cpp
+PointerAlignment: Left
+---
