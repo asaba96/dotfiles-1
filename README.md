@@ -1,7 +1,5 @@
 # Welcome to amiller27's dotfiles!
 
----
-
 This repo contains my dotfiles, as well as setup for other programs I want installed on computers I use.  It's all managed with Ansible and GNU stow.
 
 To install _everything_ from scratch:
