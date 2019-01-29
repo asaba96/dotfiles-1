@@ -1,6 +1,5 @@
 exuberant-ctags
 gsl-bin
-libgsl-dev
 libv4l-dev
 libeigen3-dev
 v4l-utils

@@ -27,7 +27,7 @@
     append: yes
   become: true
 
-- systemd:
-    name: docker
-    enabled: yes
-  become: true
+#- systemd:
+#    name: docker
+#    enabled: yes
+#  become: true

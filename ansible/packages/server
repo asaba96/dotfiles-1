@@ -5,7 +5,6 @@ ffmpeg
 h5utils
 ipython
 ipython3
-jupyter-notebook
 libjpeg-dev
 python-dev
 python-pip
