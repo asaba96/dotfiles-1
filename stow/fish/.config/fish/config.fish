@@ -101,6 +101,27 @@ function bitcraze-toolbelt
        bitcraze/toolbelt $argv
 end
 
+# Git helpers
+function git_changes --description "print the number of additions + deletions in a hash"
+    git show --shortstat $argv[1] | grep -E "fil(e|es) changed" | awk '{print $4 + $6}'
+end
+
+function git_all_hashes
+    git log --format=%H $argv
+end
+
+function git_all_hashes_with_changes
+    for hash in (git_all_hashes $argv)
+        echo -- (git_changes $hash) $hash
+    end
+end
+
+function git_hashes_sorted_by_size
+    set -l all_hashes (git_all_hashes_with_changes $argv)
+    string join \n $all_hashes | sort --numeric-sort --reverse -
+end
+
+# bobthefish theme settings
 set -g theme_show_exit_status yes
 set -g fish_prompt_pwd_dir_length 3
 set -g theme_color_scheme base16-light
@@ -113,4 +134,5 @@ set -g theme_nerd_fonts yes
 
 function fish_greeting; end
 
+# Source computer-specific stuff
 source (dirname (status --current-filename))/config-local.fish
