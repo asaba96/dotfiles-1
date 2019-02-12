@@ -74,7 +74,7 @@ set foldlevel=10000
 
 " options for youcompleteme
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_extra_conf_globlist = ['/home/aaron/Developer/robotics/iarc7/iarc7_ws/.ycm_extra_conf.py']
+let g:ycm_extra_conf_globlist = []
 
 " options for auto-pairs
 let g:AutoPairsMultilineClose = 0
@@ -127,6 +127,9 @@ let g:netrw_list_hide = '^\..*\.sw[op]$,.*\.pyc$'
 ca ex Ranger
 ca Tc tabclose
 ca Te tabedit
+ca gdecl YcmCompleter GoToDeclaration
+ca gdef YcmCompleter GoToDefinition
+ca ginc YcmCompleter GoToInclude
 
 " Diff file against version on disk
 " http://vim.wikia.com/wiki/Diff_current_buffer_and_the_original_file
