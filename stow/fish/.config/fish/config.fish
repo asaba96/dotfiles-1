@@ -131,6 +131,7 @@ set -g theme_display_git_stashed_verbose yes
 set -g theme_display_git_staged_verbose yes
 set -g theme_display_git_untracked_verbose yes
 set -g theme_nerd_fonts yes
+set -g theme_date_format "+%X %Z"
 
 function fish_greeting; end
 
