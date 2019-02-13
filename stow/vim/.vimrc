@@ -130,6 +130,7 @@ ca Te tabedit
 ca gdecl YcmCompleter GoToDeclaration
 ca gdef YcmCompleter GoToDefinition
 ca ginc YcmCompleter GoToInclude
+ca fi YcmCompleter FixIt
 
 " Diff file against version on disk
 " http://vim.wikia.com/wiki/Diff_current_buffer_and_the_original_file
