@@ -51,7 +51,7 @@ function schclean
 end
 
 # Find things in source code files
-set src_file_exts cpp hpp h c py ino js java
+set src_file_exts cpp hpp cc hh h c py ino js java
 
 function src_files
     set -l regex_parts
