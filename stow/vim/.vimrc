@@ -75,6 +75,7 @@ set foldlevel=10000
 " options for youcompleteme
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_extra_conf_globlist = []
+let g:ycm_key_invoke_completion = '<C-x>'
 
 " options for auto-pairs
 let g:AutoPairsMultilineClose = 0
