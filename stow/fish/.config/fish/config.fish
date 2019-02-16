@@ -22,13 +22,13 @@ alias moptirun='optirun -s /run/bumblebee/bumblebee.socket'
 
 function rm_hiberfile
     mkdir /mnt/hdd; and \
-    mount -r /dev/sda5 /mnt/hdd; and \
-    mount -o remount rw /mnt/hdd; and \
-    ls /mnt/hdd; and \
-    rm /mnt/hdd/hiberfil.sys; and \
-    ls /mnt/hdd; and \
-    umount /mnt/hdd; and \
-    rm -r /mnt/hdd
+       mount -r /dev/sda5 /mnt/hdd; and \
+       mount -o remount rw /mnt/hdd; and \
+       ls /mnt/hdd; and \
+       rm /mnt/hdd/hiberfil.sys; and \
+       ls /mnt/hdd; and \
+       umount /mnt/hdd; and \
+       rm -r /mnt/hdd
 end
 
 alias bat_info="upower -i /org/freedesktop/UPower/devices/battery_BAT1"
@@ -40,6 +40,14 @@ alias bim="vim"
 alias vin="vim"
 alias qgit="git"
 alias ggit="git"
+
+# Misc functions
+function find_workspaces --description "Find CtrlSpace workspaces"
+    if test (count $argv) = 0
+        set argv .
+    end
+    find $argv[1] -name .cs_workspaces | xargs --no-run-if-empty dirname
+end
 
 # Schroot stuff
 function schumount
@@ -135,5 +143,5 @@ set -g theme_date_format "+%X %Z"
 
 function fish_greeting; end
 
-# Source computer-specific stuff
-source (dirname (status --current-filename))/config-local.fish
+    # Source computer-specific stuff
+    source (dirname (status --current-filename))/config-local.fish
