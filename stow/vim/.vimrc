@@ -115,10 +115,10 @@ call plug#end()
 " Force redrawing of all the airline stuff, it doesn't like to set up the
 " theme correctly without this
 autocmd VimEnter *
-    \ call airline#extensions#tabline#ctrlspace#invalidate() |
-    \ call airline#extensions#tabline#tabs#invalidate() |
-    \ call airline#load_theme() |
-    \ call airline#update_statusline()
+            \ call airline#extensions#tabline#ctrlspace#invalidate() |
+            \ call airline#extensions#tabline#tabs#invalidate() |
+            \ call airline#load_theme() |
+            \ call airline#update_statusline()
 
 " Set buffer numbers in NetRW
 let g:netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
@@ -136,20 +136,20 @@ ca fi YcmCompleter FixIt
 " Diff file against version on disk
 " http://vim.wikia.com/wiki/Diff_current_buffer_and_the_original_file
 function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+    let filetype=&ft
+    diffthis
+    vnew | r # | normal! 1Gdd
+    diffthis
+    exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
-"set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
-"set autowrite		" Automatically save before commands like :next and :make
+"set showcmd        " Show (partial) command in status line.
+"set showmatch      " Show matching brackets.
+"set ignorecase     " Do case insensitive matching
+"set smartcase      " Do smart case matching
+"set incsearch      " Incremental search
+"set autowrite      " Automatically save before commands like :next and :make
 
 " Add --aggressive option for autopep8
 let g:formatdef_autopep8 = '"autopep8 -a -".(g:DoesRangeEqualBuffer(a:firstline, a:lastline) ? " --range ".a:firstline." ".a:lastline : "")." ".(&textwidth ? "--max-line-length=".&textwidth : "")'
