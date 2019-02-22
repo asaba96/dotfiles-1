@@ -158,6 +158,15 @@ let g:formatters_python = ['autopep8']
 " Map ctrl-k to autoformat
 map <C-k> :Autoformat<cr>
 
+" Shortcut C-w to save and compile latex with rubber
+autocmd filetype tex nnoremap <C-w> :call CompileLatex()<CR>
+function! CompileLatex()
+    let output = system('rubber --pdf '.shellescape(expand('%')))
+    if v:shell_error
+        echo output
+    endif
+endfunction
+
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
