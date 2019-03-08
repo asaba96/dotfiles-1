@@ -15,6 +15,7 @@
     mt = mergetool
     p = pull
     pl = log --graph --all --oneline --decorate
+    pla = log --graph --all --oneline --decorate --simplify-by-decoration
     pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pb = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     r = reset
