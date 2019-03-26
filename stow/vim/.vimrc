@@ -110,7 +110,20 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'chiel92/vim-autoformat'
 " Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
+Plug 'lervag/vimtex'
+Plug 'sirver/ultisnips'
 call plug#end()
+
+" Vimtex
+let g:tex_flavor='latex'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+
+" UltiSnips triggering
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 " Force redrawing of all the airline stuff, it doesn't like to set up the
 " theme correctly without this
