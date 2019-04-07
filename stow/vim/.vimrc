@@ -57,7 +57,7 @@ let g:python_highlight_space_errors = 0
 " Copied from anyfold readme
 augroup anyfold
     autocmd!
-    autocmd Filetype <filetype> AnyFoldActivate
+    autocmd Filetype * AnyFoldActivate
 augroup END
 
 " disable anyfold for large files
@@ -66,7 +66,7 @@ autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) | if f > g:LargeF
 function LargeFile()
     augroup anyfold
         autocmd! " remove AnyFoldActivate
-        autocmd Filetype <filetype> setlocal foldmethod=indent " fall back to indent folding
+        autocmd Filetype * setlocal foldmethod=indent " fall back to indent folding
     augroup END
 endfunction
 
