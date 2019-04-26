@@ -57,7 +57,7 @@ endsnippet
 snippet fig "Figure environment" b
 \begin{figure}[${1:htpb}]
 	\centering
-	${2:\includegraphics[width=0.8\textwidth]{$3}}
+	\include${2:graphics}[width=0.8\textwidth]{$3}
 	\caption{${4:$3}}
 	\label{fig:${5:${3/\W+/-/g}}}
 \end{figure}
@@ -443,10 +443,10 @@ priority 100
 # *
 # endsnippet
 
-context "math()"
-snippet norm "norm" iA
-\|$1\|$0
-endsnippet
+#context "math()"
+#snippet norm "norm" iA
+#\|$1\|$0
+#endsnippet
 
 priority 100
 context "math()"
@@ -621,17 +621,17 @@ snippet "([a-zA-Z])bar" "bar" riA
 \overline{`!p snip.rv=match.group(1)`}
 endsnippet
 
-priority 10
-context "math()"
-snippet "hat" "hat" riA
-\hat{$1}$0
-endsnippet
+#priority 10
+#context "math()"
+#snippet "hat" "hat" riA
+#\hat{$1}$0
+#endsnippet
 
-priority 100
-context "math()"
-snippet "([a-zA-Z])hat" "hat" riA
-\hat{`!p snip.rv=match.group(1)`}
-endsnippet
+#priority 100
+#context "math()"
+#snippet "([a-zA-Z])hat" "hat" riA
+#\hat{`!p snip.rv=match.group(1)`}
+#endsnippet
 
 snippet letw "let omega" iA
 Let $\Omega \subset \C$ be open.

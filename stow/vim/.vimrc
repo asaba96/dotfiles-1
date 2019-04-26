@@ -172,7 +172,7 @@ let g:formatters_python = ['autopep8']
 map <C-k> :Autoformat<cr>
 
 " Shortcut C-w to save and compile latex with rubber
-autocmd filetype tex nnoremap <C-v> :call CompileLatex()<CR>
+autocmd filetype tex nnoremap <C-n> :call CompileLatex()<CR>
 function! CompileLatex()
     let output = system('rubber --pdf --unsafe '.shellescape(expand('%')))
     if v:shell_error
