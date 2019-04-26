@@ -32,6 +32,7 @@ function rm_hiberfile
 end
 
 alias bat_info="upower -i /org/freedesktop/UPower/devices/battery_BAT1"
+alias power="bat_info | grep energy-rate"
 alias pingip="ping 8.8.8.8"
 alias pingo="ping google.com"
 
