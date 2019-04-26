@@ -19,6 +19,31 @@ import os
 import ycm_core
 
 
+def find_workspace_above(dirname):
+    '''
+    Return the first workspace at or above `dirname`, or None if there isn't one
+    '''
+    if os.path.exists(os.path.join(dirname, '.catkin_workspace')):
+        return dirname
+    parent_dir = os.path.dirname(dirname)
+    if parent_dir == dirname:
+        return None
+    return find_workspace_above(parent_dir)
+
+
+def is_ignored(dirname, workspace_dir):
+    if workspace_dir not in dirname:
+        return False
+
+    if os.path.exists(os.path.join(dirname, 'CATKIN_IGNORE')):
+        return True
+
+    parent_dir = os.path.dirname(dirname)
+    if parent_dir == dirname:
+        return False
+    return is_ignored(parent_dir, workspace_dir)
+
+
 def GetRosIncludePaths(filename):
     """Return a list of potential include directories"""
     try:
@@ -28,16 +53,18 @@ def GetRosIncludePaths(filename):
     rospack = rospkg.RosPack()
     includes = []
 
-    # Workspace paths end with /src, others typically end with /ros or /share
-    workspace_src_paths = [
-            path for path in rospkg.get_ros_paths() if path.endswith('/src')
-        ]
-    includes.extend(
-            os.path.join(path[:-len('src')] + 'devel', 'include')
-            for path in workspace_src_paths)
+    workspace_paths = {
+        find_workspace_above(path) for path in rospkg.get_ros_paths()
+    } - { None }
 
-    for src_dir in workspace_src_paths:
-        for dirpath, dirnames, _ in os.walk(src_dir, followlinks=False):
+    includes.extend(
+        os.path.join(path, 'devel', 'include')
+        for path in workspace_paths)
+
+    for workspace_dir in workspace_paths:
+        for dirpath, dirnames, _ in os.walk(
+                os.path.join(workspace_dir, 'src'), followlinks=False):
+            if is_ignored(dirpath, workspace_dir): continue
             for dirname in dirnames:
                 if dirname == 'include':
                     includes.append(os.path.join(dirpath, dirname))
