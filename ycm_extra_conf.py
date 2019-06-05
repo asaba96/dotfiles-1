@@ -23,12 +23,17 @@ def find_workspace_above(dirname):
     '''
     Return the first workspace at or above `dirname`, or None if there isn't one
     '''
-    if os.path.exists(os.path.join(dirname, '.catkin_workspace')):
-        return dirname
-    parent_dir = os.path.dirname(dirname)
-    if parent_dir == dirname:
-        return None
-    return find_workspace_above(parent_dir)
+    with open('/tmp/ycm.log', 'a') as logfile:
+        logfile.write('Testing directory {} for workspace...'.format(dirname))
+
+        if os.path.exists(os.path.join(dirname, '.catkin_workspace')):
+            logfile.write('Succeeded\n')
+            return dirname
+        logfile.write('Failed\n')
+        parent_dir = os.path.dirname(dirname)
+        if parent_dir == dirname:
+            return None
+        return find_workspace_above(parent_dir)
 
 
 def is_ignored(dirname, workspace_dir):
@@ -55,7 +60,7 @@ def GetRosIncludePaths(filename):
 
     workspace_paths = {
         find_workspace_above(path) for path in rospkg.get_ros_paths()
-    } - { None }
+    }.union({ find_workspace_above(filename) }) - { None }
 
     includes.extend(
         os.path.join(path, 'devel', 'include')
@@ -117,7 +122,7 @@ DEFAULT_FLAGS = [
         # specify a "-std=<something>".
         # For a C project, you would set this to something like 'c99' instead of
         # 'c++11'.
-        '-std=c++11',
+        '-std=c++17',
         # ...and the same thing goes for the magic -x option which specifies the
         # language that the files to be compiled are written in. This is mostly
         # relevant for c++ headers.
@@ -128,9 +133,12 @@ DEFAULT_FLAGS = [
         '.',
 
         # include third party libraries
-        '-isystem',
-        '/usr/include/eigen3',
-        ]
+        '-isystem', '/usr/include/eigen3',
+        '-isystem', '/usr/include/OGRE',
+        '-isystem', '/usr/include/qt4',
+        ] + sum([['-isystem', os.path.join('/usr/include/qt4', d)]
+                 for d in os.listdir('/usr/include/qt4')],
+                [])
 
 
 def GetCompilationDatabaseFolder(filename):
