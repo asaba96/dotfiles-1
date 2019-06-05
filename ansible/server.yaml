@@ -17,3 +17,5 @@
         filename: server
     - include_tasks: tasks/fish.yaml
     - include_tasks: tasks/grive.yaml
+    - name: Install Docker
+      include_tasks: tasks/docker.yaml
