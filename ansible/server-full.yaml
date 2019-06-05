@@ -14,3 +14,4 @@
     - include: tasks/packages_from_file.yaml
       vars:
         filename: server-full
+    - include_tasks: tasks/node.yaml

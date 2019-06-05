@@ -1,0 +1,14 @@
+- name: Add apt key
+  apt_key:
+    keyserver: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+    id: 9FD3B784BC1C6FC31A8A0A1C1655A0AB68576280
+
+- apt_repository:
+    state: present
+    filename: nodejs
+    repo: deb https://deb.nodesource.com/node_8.x xenial main
+
+- apt:
+    name: nodejs
+    update_cache: yes
+    state: present
