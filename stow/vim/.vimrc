@@ -93,6 +93,13 @@ let g:airline_powerline_fonts = 1
 let g:airline_exclude_preview=1
 set laststatus=2
 
+" Auto self-install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " load plugins
 call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
@@ -185,16 +192,16 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 function! DisplayColorSchemes()
-   let currDir = getcwd()
-   exec "cd $VIMRUNTIME/colors"
-   for myCol in split(glob("*"), '\n')
-      if myCol =~ '\.vim'
-         let mycol = substitute(myCol, '\.vim', '', '')
-         exec "colorscheme " . mycol
-         exec "redraw!"
-         echo "colorscheme = ". myCol
-         sleep 2
-      endif
-   endfor
-   exec "cd " . currDir
+    let currDir = getcwd()
+    exec "cd $VIMRUNTIME/colors"
+    for myCol in split(glob("*"), '\n')
+        if myCol =~ '\.vim'
+            let mycol = substitute(myCol, '\.vim', '', '')
+            exec "colorscheme " . mycol
+            exec "redraw!"
+            echo "colorscheme = ". myCol
+            sleep 2
+        endif
+    endfor
+    exec "cd " . currDir
 endfunction
