@@ -42,6 +42,8 @@ alias bim="vim"
 alias vin="vim"
 alias qgit="git"
 alias ggit="git"
+alias suod=sudo
+alias sduo=sudo
 
 # Misc functions
 function find_workspaces --description "Find CtrlSpace workspaces"
