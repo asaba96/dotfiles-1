@@ -2,13 +2,16 @@
   apt_key:
     url: https://dl.google.com/linux/linux_signing_key.pub
     id: EB4C1BFD4F042F6DDDCCEC917721F63BD38B4796
+  become: true
 
 - apt_repository:
     state: present
     filename: google-chrome
     repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+  become: true
 
 - apt:
     name: google-chrome-stable
     update_cache: yes
     state: present
+  become: true

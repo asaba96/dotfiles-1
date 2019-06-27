@@ -2,8 +2,6 @@
 - import_playbook: minimal.yaml
 
 - hosts: localhost
-  become: true
-
   tasks:
     - name: Vim ppa
       apt_repository:

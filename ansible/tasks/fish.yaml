@@ -1,11 +1,13 @@
 - apt_repository:
     state: present
     repo: ppa:fish-shell/nightly-master
+  become: true
 
 - apt:
     name: fish
     update_cache: yes
     state: present
+  become: true
 
 - file:
     path: ~/.config/fish/functions

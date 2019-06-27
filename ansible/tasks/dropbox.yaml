@@ -2,13 +2,16 @@
   apt_key:
     keyserver: pgp.mit.edu
     id: 1C61A2656FB57B7E4DE0F4C1FC918B335044912E
+  become: true
 
 - apt_repository:
     state: present
     filename: dropbox
     repo: deb http://linux.dropbox.com/ubuntu/ xenial main
+  become: true
 
 - apt:
     name: dropbox
     update_cache: yes
     state: present
+  become: true

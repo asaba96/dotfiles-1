@@ -1,10 +1,10 @@
 #!/usr/bin/env ansible-playbook
 - hosts: localhost
-  become: true
   pre_tasks:
     - name: update repositories
       apt: update_cache=yes
       changed_when: False
+      become: true
 
   tasks:
     - include: tasks/bash.yaml

@@ -1,11 +1,13 @@
 - apt_key:
     id: 7B2C3B0889BF5709A105D03AC2518248EEA14886
     keyserver: keyserver.ubuntu.com
+  become: true
 
 - apt_repository:
     state: present
     filename: tor
     repo: deb http://ppa.launchpad.net/webupd8team/tor-browser/ubuntu xenial main
+  become: true
 
 - apt:
     name:
@@ -13,3 +15,4 @@
       - tor-browser
     state: present
     update_cache: yes
+  become: true

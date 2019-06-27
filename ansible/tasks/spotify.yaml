@@ -2,13 +2,16 @@
   apt_key:
     keyserver: hkp://keyserver.ubuntu.com:80
     id: 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+  become: true
 
 - apt_repository:
     state: present
     filename: spotify
     repo: deb http://repository.spotify.com stable non-free
+  become: true
 
 - apt:
     name: spotify-client
     update_cache: yes
     state: present
+  become: true

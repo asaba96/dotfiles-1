@@ -2,6 +2,7 @@
   apt:
       name: stow
       state: present
+  become: true
 
 - name: Make config directory
   file:

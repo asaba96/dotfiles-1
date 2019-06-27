@@ -1,8 +1,10 @@
 - apt_repository:
     state: present
     repo: ppa:deluge-team/ppa
+  become: true
 
 - apt:
     name: deluge
     update_cache: yes
     state: present
+  become: true
