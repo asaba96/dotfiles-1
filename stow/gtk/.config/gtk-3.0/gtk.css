@@ -1,0 +1,35 @@
+headerbar entry,
+headerbar spinbutton,
+headerbar button,
+headerbar separator {
+    /* same as headerbar side padding for nicer proportions */
+/*    margin-top: 2px;
+    margin-bottom: 2px;*/
+}
+
+.default-decoration {
+/*    min-height: 0;*/ /* let the entry and button drive the titlebar size */
+    padding: 7px 10px;
+}
+
+/* tweak these two props to reduce button size */
+.default-decoration .titlebutton {
+/*    min-height: 0px;
+    min-width: 26px;*/
+}
+
+window.ssd headerbar.titlebar {
+/*  border: none;
+  background-image: linear-gradient(to bottom,
+  shade(@theme_bg_color, 1.05),
+  shade(@theme_bg_color, 0.99));
+  box-shadow: inset 0 1px shade(@theme_bg_color, 1.4);*/
+}
+
+scrolledwindow junction {
+    background-color: #555;
+}
+
+scrollbar {
+    background-color: #555;
+}
