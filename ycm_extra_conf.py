@@ -26,7 +26,12 @@ def find_workspace_above(dirname):
     with open('/tmp/ycm.log', 'a') as logfile:
         logfile.write('Testing directory {} for workspace...'.format(dirname))
 
+        # .catkin_worspace is generated if you use `catkin_make`
         if os.path.exists(os.path.join(dirname, '.catkin_workspace')):
+            logfile.write('Succeeded\n')
+            return dirname
+        # if using `catkin build`
+        if os.path.exists(os.path.join(dirname, '.catkin_tools')):
             logfile.write('Succeeded\n')
             return dirname
         logfile.write('Failed\n')
