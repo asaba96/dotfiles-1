@@ -1,5 +1,6 @@
 - name: Add apt key
   apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
     id: DB085A08CA13B8ACB917E0F6D938EC0D038651BD
   become: true
 
