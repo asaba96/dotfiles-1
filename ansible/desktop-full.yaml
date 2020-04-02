@@ -16,8 +16,8 @@
       include_tasks: tasks/deluge.yaml
     - name: Install Dropbox
       include_tasks: tasks/dropbox.yaml
-    - name: Install Chrome
-      include_tasks: tasks/google-chrome.yaml
+    #- name: Install Chrome
+    #  include_tasks: tasks/google-chrome.yaml
     - name: Install refind
       include_tasks: tasks/refind.yaml
     - name: Install Slack
@@ -26,3 +26,7 @@
       include_tasks: tasks/spotify.yaml
     - name: Install Tor
       include_tasks: tasks/tor.yaml
+    - name: Install Zotero
+      include_tasks: tasks/zotero.yaml
+    - name: Install Discord
+      include_tasks: tasks/discord.yaml

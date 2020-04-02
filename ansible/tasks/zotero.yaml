@@ -1,0 +1,16 @@
+- name: Add apt key
+  apt_key:
+    url: https://github.com/retorquere/zotero-deb/releases/download/apt-get/deb.gpg.key
+  become: true
+
+- apt_repository:
+    state: present
+    filename: zotero
+    repo: deb https://github.com/retorquere/zotero-deb/releases/download/apt-get/ ./
+  become: true
+
+- apt:
+    name: zotero
+    update_cache: yes
+    state: present
+  become: true

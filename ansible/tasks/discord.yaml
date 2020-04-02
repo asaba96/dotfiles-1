@@ -1,0 +1,5 @@
+- apt:
+    name: discord
+    deb: https://discordapp.com/api/download?platform=linux&format=deb
+    state: present
+  become: true
