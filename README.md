@@ -83,3 +83,5 @@ In-app option doesn't start on login, need to go to ubuntu startup applications 
 Follow steps [here](https://askubuntu.com/questions/1053134/hibernation-in-18-04)
 
 Can add kernel parameters for rEFInd in `/boot/refind_linux.conf`
+
+### See `ansible/packages/non-deb`
