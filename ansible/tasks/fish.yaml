@@ -20,6 +20,8 @@
 
 - command: fish -c 'fisher add edc/bass'
 - command: fish -c 'fisher add amiller27/theme-bobthefish'
+- command: fish -c 'fisher add amiller27/fish_logo'
+- command: fish -c 'fisher add laughedelic/pisces'
 
 - user:
     name: "{{ lookup('env', 'USER') }}"

@@ -173,7 +173,7 @@ com! DiffSaved call s:DiffWithSaved()
 
 " Add --aggressive option for autopep8
 let g:formatdef_autopep8 = '"autopep8 -a -".(g:DoesRangeEqualBuffer(a:firstline, a:lastline) ? " --range ".a:firstline." ".a:lastline : "")." ".(&textwidth ? "--max-line-length=".&textwidth : "")'
-let g:formatters_python = ['autopep8']
+let g:formatters_python = ['black', 'autopep8']
 
 " Map ctrl-k to autoformat
 map <C-k> :Autoformat<cr>
