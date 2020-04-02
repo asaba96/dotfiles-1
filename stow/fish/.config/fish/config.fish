@@ -147,5 +147,5 @@ set -g theme_date_format "+%X %Z"
 
 function fish_greeting; end
 
-    # Source computer-specific stuff
-    source (dirname (status --current-filename))/config-local.fish
+# Source computer-specific stuff
+source (dirname (status --current-filename))/config-local.fish
