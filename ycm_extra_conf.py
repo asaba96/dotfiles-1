@@ -140,10 +140,10 @@ DEFAULT_FLAGS = [
         # include third party libraries
         '-isystem', '/usr/include/eigen3',
         '-isystem', '/usr/include/OGRE',
-        '-isystem', '/usr/include/qt4',
-        ] + sum([['-isystem', os.path.join('/usr/include/qt4', d)]
-                 for d in os.listdir('/usr/include/qt4')],
-                [])
+        # '-isystem', '/usr/include/qt4',
+        ] # + sum([['-isystem', os.path.join('/usr/include/qt4', d)]
+          #       for d in os.listdir('/usr/include/qt4')],
+          #      [])
 
 
 def GetCompilationDatabaseFolder(filename):

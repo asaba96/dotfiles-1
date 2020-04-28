@@ -1,32 +1,8 @@
-[push]
-    default = simple
-[alias]
-    a = add --all
-    b = branch
-    c = commit
-    ca = commit --amend
-    cm = commit -m
-    ch = checkout
-    d = diff
-    di = diff --cached
-    f = fetch --prune
-    l = log
-    m = merge
-    mt = mergetool
-    p = pull
-    pl = log --graph --all --oneline --decorate
-    pla = log --graph --all --oneline --decorate --simplify-by-decoration
-    pn = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-    pb = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-    r = reset
-    ra = rebase --abort
-    rc = rebase --continue
-    rs = rebase --skip
-    s = status
-    st = stash
-[core]
-    editor = vim
-    excludesfile = ~/.gitignore_global
-[merge]
-    tool = vimdiff
-    conflictstyle = diff3
+[user]
+	email = asaba96@pitt.edu
+	name = Andrew Saba
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

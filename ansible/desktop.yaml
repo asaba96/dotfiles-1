@@ -5,6 +5,6 @@
   tasks:
     - include: tasks/packages_from_file.yaml
       vars:
-        filename: desktop
+        filename: andy
     - name: Install Nerd Fonts
       include_tasks: tasks/fonts.yaml
